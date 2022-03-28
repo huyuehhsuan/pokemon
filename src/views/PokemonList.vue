@@ -88,7 +88,7 @@ export default {
   components: { PokeCard },
   data() {
     return {
-      listLength: 3,
+      listLength: 5,
       pokeList: [],
       showList: [],
       type: "all",
