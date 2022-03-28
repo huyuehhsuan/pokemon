@@ -30,7 +30,7 @@
           v-on:keyup.enter="inputHandle"
         />
       </div>
-      <button @click="closeAudio()">關閉音效</button>
+      <button @click="closeAudio()">X關閉音效X</button>
       <div class="grid">
         <PokeCard
           v-for="(item, index) in titleMenu"
