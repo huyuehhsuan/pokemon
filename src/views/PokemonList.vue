@@ -1,12 +1,13 @@
 <template>
   <div>
     <div class="container">
+      <div class="sideBtn">
+        <button @click="closeAudio()">OFFX</button
+        ><button @click="closeAudio()">ONO</button>
+      </div>
+
       <div class="input">
-        <img
-          src="../assets/pokemon-logo.png"
-          alt="pokemon-logo"
-          style="width: 100px; margin-right: 20px"
-        />
+        <img src="../assets/pokemon-logo.png" alt="pokemon-logo" class="logo" />
         <select v-model="type">
           <option value="all">all</option>
           <option value="fire">fire</option>
@@ -30,7 +31,7 @@
           v-on:keyup.enter="inputHandle"
         />
       </div>
-      <button @click="closeAudio()">X關閉音效X</button>
+
       <div class="grid">
         <PokeCard
           v-for="(item, index) in titleMenu"
@@ -43,7 +44,7 @@
     </div>
 
     <div class="modal-bg">
-      <div class="modal card box-border">
+      <div class="modal">
         <button @click="closeModal()" class="close-btn">X</button>
         <audio id="click" src="../assets/audio/click.mp3"></audio>
         <h1>{{ modal.name[0].toUpperCase() + modal.name.slice(1) }}</h1>
@@ -175,11 +176,29 @@ export default {
 };
 </script>
 <style>
+body {
+  background-image: url("https://gamingdna.co.nz/wp-content/uploads/2018/05/Pokemon-BG.jpg");
+  background-repeat: no-repeat;
+  background-position: left top, right bottom, center center;
+  background-size: cover;
+}
+.sideBtn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+.sideBtn button {
+  margin: 0 0.5rem;
+}
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 2rem 0;
   position: relative;
+}
+.logo {
+  width: 100px;
+  margin-right: 20px;
 }
 .input {
   display: flex;
@@ -207,7 +226,6 @@ export default {
   width: 50%;
   border-radius: 10px;
   margin: 0 1.2rem;
-  padding: 0.8rem;
 }
 .grid {
   display: grid;
@@ -239,8 +257,10 @@ export default {
   opacity: 0;
   transition: 0.5s;
   border-radius: 10px;
+  padding: 1.5rem;
 }
 .modal h1 {
+  text-align: center;
   font-family: "AtariClassicChunky";
   line-height: 2;
 }
@@ -255,6 +275,7 @@ export default {
   height: 120px;
   text-align: center;
   margin: 1rem auto;
+  display: flex;
 }
 .img {
   width: 150px;
@@ -271,9 +292,10 @@ export default {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.6);
   border: #fff 1px solid;
+  font-family: monospace;
 }
 .infoText {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 10px;
   font-weight: bold;
 }
@@ -285,20 +307,66 @@ export default {
   margin-left: auto;
   cursor: url("../assets/pokemon-ball.svg"), auto !important;
 }
+button {
+  border: 2px solid rgb(87, 87, 87);
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #fff;
+  font-family: "AtariClassicChunky";
+}
 @media screen and (max-width: 800px) {
   .container {
-    padding: 2rem;
+    max-width: 100%;
+    padding: 1rem 0;
+  }
+  .sideBtn {
+    display: flex;
+    flex-direction: column;
+    top: 30%;
+    right: 0.5rem;
+  }
+  .sideBtn button {
+    margin: 0.1rem 0;
+  }
+  .logo {
+    width: 50px;
+    margin-right: 10px;
   }
   .input {
-    width: 100%;
+    width: 90%;
     padding: 0.8rem;
     margin: 0 auto 0.5rem;
   }
   .input input {
     width: 60%;
+    margin: 0 0.5rem;
   }
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .modal {
+    width: 80%;
+    height: 500px;
+  }
+  .modal h1 {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  .informations {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .information {
+    display: flex;
+    align-items: center;
+  }
+  .infoValue {
+    margin: 0 0.5rem;
+    font-size: 1rem;
+  }
+  .infoText {
+    font-size: 1rem;
+    margin: 0;
   }
 }
 </style>

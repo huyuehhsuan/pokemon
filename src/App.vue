@@ -16,4 +16,10 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: "AtariClassicChunky";
+  src: url("./assets/font/AtariClassicChunky-PxXP.woff") format("woff"),
+    url("./assets/font/AtariClassicChunky-PxXP.ttf") format("truetype"),
+    url("./assets/font/AtariClassicChunky-PxXP.eot") format("embedded-opentype");
+}
 </style>

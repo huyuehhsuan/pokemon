@@ -83,6 +83,7 @@ export default {
   font-family: "AtariClassicChunky";
   line-height: 2;
   text-align: center;
+  padding: 1rem;
   border-radius: 20px;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   transition: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -95,22 +96,11 @@ export default {
 .info {
   margin-top: 20px;
 }
-.img {
-  width: 150px;
-  margin: auto;
-}
-.img-container {
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  text-align: center;
-  margin: auto;
-}
+
 .number {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  font-size: 0.8em;
+  font-size: 1rem;
   padding: 5px 10px;
 }
 
