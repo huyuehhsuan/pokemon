@@ -49,12 +49,14 @@ export default {
     const index = typeList.indexOf(`${this.pokeitem.types[0].type.name}`);
     this.bgcolor = colorList[index];
     const cards = document.querySelectorAll(".pokecard");
-    cards.forEach((item) => {
-      item.addEventListener("mouseenter", function () {
-        var audio = document.getElementById("hover");
-        audio.play();
+    if (this.$store.state.isPlay == true) {
+      cards.forEach((item) => {
+        item.addEventListener("mouseenter", function () {
+          var hover = document.getElementById("hover");
+          hover.play();
+        });
       });
-    });
+    }
   },
   computed: {
     imgUrl() {

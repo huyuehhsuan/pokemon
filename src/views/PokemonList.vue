@@ -2,8 +2,9 @@
   <div>
     <div class="container">
       <div class="sideBtn">
-        <button @click="closeAudio()">OFFX</button
-        ><button @click="closeAudio()">ONO</button>
+        <button @click="closeAudio('close')" v-if="this.$store.state.isPlay">
+          OFFX</button
+        ><button @click="closeAudio('open')" v-else>ONO</button>
       </div>
 
       <div class="input">
@@ -132,17 +133,38 @@ export default {
     closeModal() {
       const modal = document.querySelector(".bg-active");
       modal.classList.remove("bg-active");
-      var audio = document.getElementById("click");
-      audio.play();
+      let click = document.getElementById("click");
+      click.play();
     },
-    closeAudio() {
+    closeAudio(state) {
       const cards = document.querySelectorAll(".pokecard");
-      cards.forEach((item) => {
-        item.addEventListener("mouseenter", function () {
-          var hover = document.getElementById("hover");
-          hover.pause();
+      let hover = document.getElementById("hover");
+      if (state === "close") {
+        this.$store.commit("closeMusic");
+        cards.forEach((item) => {
+          item.addEventListener("mouseenter", function () {
+            let playPromise = hover.play();
+            if (playPromise !== undefined) {
+              playPromise.then(() => {
+                hover.pause();
+              });
+            }
+          });
         });
-      });
+      }
+      if (state === "open") {
+        this.$store.commit("playMusic");
+        cards.forEach((item) => {
+          item.addEventListener("mouseenter", function () {
+            let playPromise = hover.play();
+            if (playPromise !== undefined) {
+              playPromise.then(() => {
+                hover.play();
+              });
+            }
+          });
+        });
+      }
     },
   },
 
