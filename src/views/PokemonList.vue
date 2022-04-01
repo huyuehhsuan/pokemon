@@ -134,7 +134,9 @@ export default {
       const modal = document.querySelector(".bg-active");
       modal.classList.remove("bg-active");
       let click = document.getElementById("click");
-      click.play();
+      if (this.$store.state.isPlay == true) {
+        click.play();
+      }
     },
     closeAudio(state) {
       const cards = document.querySelectorAll(".pokecard");

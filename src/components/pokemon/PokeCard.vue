@@ -71,8 +71,10 @@ export default {
       if (this.pokeitem) {
         this.$emit("modalData", this.pokeitem);
         this.$emit("modalColor", this.bgcolor);
-        var audio = document.getElementById("click");
-        audio.play();
+        var click = document.getElementById("click");
+        if (this.$store.state.isPlay == true) {
+          click.play();
+        }
       }
     },
   },
