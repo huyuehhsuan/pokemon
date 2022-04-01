@@ -3,8 +3,9 @@
     <div class="container">
       <div class="sideBtn">
         <button @click="closeAudio('close')" v-if="this.$store.state.isPlay">
-          OFFX</button
-        ><button @click="closeAudio('open')" v-else>ONO</button>
+          SOUND<br />
+          OFF</button
+        ><button @click="closeAudio('open')" v-else>SOUND<br />ON</button>
       </div>
 
       <div class="input">
@@ -210,6 +211,7 @@ body {
   position: fixed;
   top: 1rem;
   right: 1rem;
+  z-index: 10;
 }
 .sideBtn button {
   margin: 0 0.5rem;
