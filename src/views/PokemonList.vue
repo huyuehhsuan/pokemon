@@ -91,7 +91,7 @@ export default {
   components: { PokeCard },
   data() {
     return {
-      listLength: 5,
+      listLength: 150,
       pokeList: [],
       showList: [],
       type: "all",
@@ -201,11 +201,14 @@ export default {
 };
 </script>
 <style>
+*{
+  margin: 0;
+}
 body {
   background-image: url("https://gamingdna.co.nz/wp-content/uploads/2018/05/Pokemon-BG.jpg");
-  background-repeat: no-repeat;
-  background-position: left top, right bottom, center center;
-  background-size: cover;
+  background-repeat: repeat;
+  /* background-position: left top, right bottom, center center;
+  background-size: cover; */
 }
 .sideBtn {
   position: fixed;
@@ -213,8 +216,12 @@ body {
   right: 1rem;
   z-index: 10;
 }
+
 .sideBtn button {
   margin: 0 0.5rem;
+}
+.sideBtn button:hover {
+  cursor: pointer;
 }
 .container {
   max-width: 1100px;

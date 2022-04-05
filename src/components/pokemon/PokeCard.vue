@@ -82,6 +82,7 @@ export default {
 </script>
 
 <style scoped>
+
 .pokecard {
   width: 80%;
   font-family: "AtariClassicChunky";
